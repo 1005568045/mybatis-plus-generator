@@ -20,9 +20,11 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * @author 10055
+ * @author wuhe
  */
 public class CodeGenerator {
+
+    public static final String DATA_BASE_NAME = "test";
 
     /**
      * <p>
@@ -44,6 +46,9 @@ public class CodeGenerator {
     }
 
     public static void main(String[] args) {
+
+
+
         // 代码生成器
         AutoGenerator mpg = new AutoGenerator();
 
@@ -62,7 +67,7 @@ public class CodeGenerator {
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/face_recognition?useUnicode=true&useSSL=false&characterEncoding=utf8");
+        dsc.setUrl("jdbc:mysql://localhost:3306/"+ DATA_BASE_NAME +"?useUnicode=true&useSSL=false&characterEncoding=utf8");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");
@@ -121,7 +126,6 @@ public class CodeGenerator {
         StrategyConfig strategy = new StrategyConfig();
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
-        //strategy.setSuperEntityClass("你自己的父类实体,没有就不用设置!");
         strategy.setEntityLombokModel(true);
         strategy.setRestControllerStyle(true);
         // 公共父类
